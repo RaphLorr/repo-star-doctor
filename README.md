@@ -2,6 +2,10 @@
 
 A no-login GitHub repo audit that turns a quiet repository into a clearer, more star-worthy project page.
 
+Live demo: https://raphlorr.github.io/repo-star-doctor/
+
+![Repo Star Doctor screenshot](assets/screenshot.png)
+
 Paste a public GitHub repository URL and get:
 
 - Star readiness score
@@ -53,7 +57,7 @@ GitHub's docs currently describe unauthenticated REST API limits as rate-limited
 Use the `repo` query parameter:
 
 ```text
-http://localhost:4173/?repo=vercel/next.js
+https://raphlorr.github.io/repo-star-doctor/?repo=vercel/next.js
 ```
 
 ## Roadmap
