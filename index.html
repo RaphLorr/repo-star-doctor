@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Repo Star Doctor</title>
+    <meta
+      name="description"
+      content="A no-login GitHub repo audit that turns your README into a star-worthy front door."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="workbench" aria-label="Repo Star Doctor">
+        <div class="intro">
+          <p class="eyebrow">Repo Star Doctor</p>
+          <h1>Turn a quiet GitHub repo into something people understand, trust, and star.</h1>
+          <p class="subcopy">
+            Paste any public GitHub URL. The doctor checks the repo metadata and README, then gives you a score,
+            blunt fixes, launch copy, and a README upgrade outline.
+          </p>
+        </div>
+
+        <form id="repo-form" class="search-panel">
+          <label for="repo-input">GitHub repository URL</label>
+          <div class="input-row">
+            <input
+              id="repo-input"
+              name="repo"
+              type="text"
+              inputmode="url"
+              placeholder="https://github.com/owner/repo"
+              autocomplete="off"
+              required
+            />
+            <button type="submit">Diagnose</button>
+          </div>
+          <div class="quick-picks" aria-label="Example repositories">
+            <button type="button" data-repo="https://github.com/vercel/next.js">next.js</button>
+            <button type="button" data-repo="https://github.com/oven-sh/bun">bun</button>
+            <button type="button" data-repo="https://github.com/tailwindlabs/tailwindcss">tailwindcss</button>
+          </div>
+          <p class="note">
+            No login. Public repos only. GitHub limits unauthenticated API calls, so keep rapid-fire testing civilized.
+          </p>
+        </form>
+      </section>
+
+      <section id="status" class="status" hidden></section>
+
+      <section id="results" class="results" hidden>
+        <div class="score-board">
+          <div class="score-tile">
+            <span class="label">Star readiness</span>
+            <strong id="score">0</strong>
+            <span id="grade" class="grade">Needs surgery</span>
+          </div>
+          <div class="repo-summary">
+            <h2 id="repo-name">Repository</h2>
+            <p id="repo-description"></p>
+            <div id="repo-stats" class="stats"></div>
+          </div>
+        </div>
+
+        <div class="grid">
+          <article class="panel">
+            <div class="panel-head">
+              <h2>What is leaking stars</h2>
+              <button class="copy-btn" data-copy="#leaks">Copy</button>
+            </div>
+            <ul id="leaks" class="findings"></ul>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head">
+              <h2>Fast fixes</h2>
+              <button class="copy-btn" data-copy="#fixes">Copy</button>
+            </div>
+            <ol id="fixes" class="steps"></ol>
+          </article>
+
+          <article class="panel wide">
+            <div class="panel-head">
+              <h2>README surgery plan</h2>
+              <button class="copy-btn" data-copy="#readme-plan">Copy</button>
+            </div>
+            <pre id="readme-plan"></pre>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head">
+              <h2>Launch post</h2>
+              <button class="copy-btn" data-copy="#launch-post">Copy</button>
+            </div>
+            <pre id="launch-post"></pre>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head">
+              <h2>Star bait checklist</h2>
+              <button class="copy-btn" data-copy="#checklist">Copy</button>
+            </div>
+            <ul id="checklist" class="checklist"></ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
